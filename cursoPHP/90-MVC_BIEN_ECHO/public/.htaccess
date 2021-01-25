@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+Options -Multiviews
+RewriteEngine On   
+RewriteBase /programasphp/cursoPHP/90-MVC_BIEN_ECHO/public
+RewriteCond %{REQUEST_FILENAME} !-d     
+RewriteCond %{REQUEST_FILENAME} !-f     
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]   
+</IfModule>
+
+# RewriteEngine On      reescribimos la url  en base a la ruta base que esta abajo de esta instruccion
+#RewriteCond %{REQUEST_FILENAME} !-d     si el archivo existe cargue el contenido
+#RewriteCond %{REQUEST_FILENAME} !-f     si no existe lo redirecciona
+#RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]     redireccion es a index.php y rescatamos dentro del parametro el valor de la url
+
+
+#esto lo que hace es poder obtener de la url la informacion y se almacena en la variable url que pasamos por parametro
+#y si ponemos cualquier otra cosa que no exitsta simpre nos redirigira a el index.php
